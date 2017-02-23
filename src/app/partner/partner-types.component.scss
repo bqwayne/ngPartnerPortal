@@ -1,0 +1,48 @@
+.pyramid {
+	float: left;
+	line-height: 100px;
+}
+.pyramid{
+    &-top {
+	    width: 0;
+	    height: 0;
+	    border-left: 50px solid transparent;
+	    border-right: 50px solid transparent;
+	    border-bottom: 100px solid rgba(193,66,66,1);
+		margin: auto;
+		text-align: center;
+    }
+    &-middle {
+	    border-bottom: 100px solid rgba(193,66,66,.5);
+	    border-left: 50px solid transparent;
+	    border-right: 50px solid transparent;
+	    height: 0;
+	    width: 100px;
+		margin: auto;
+		text-align: center;
+    }
+    &-bottom {
+	    border-bottom: 100px solid rgba(193,66,66,.3);
+	    border-left: 50px solid transparent;
+	    border-right: 50px solid transparent;
+	    height: 0;
+	    width: 200px;
+		margin: auto;
+		text-align: center;
+    }
+}
+.pyramid-text {
+	float: left;
+	&-top {
+		height: 100px;
+		clear: both;
+	}
+	&-middle {
+		height: 100px;
+		clear: both;
+	}
+	&-bottom {
+		height: 100px;
+		clear: both;
+	}
+}

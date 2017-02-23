@@ -1,0 +1,25 @@
+<vdl-card>
+  <vdl-card-title>Welcome to the VDL Angular Starter Kit</vdl-card-title>
+  <vdl-card-content>
+    <p>We are under heavy development still and hopefully this will give you a good starting point!</p>
+  </vdl-card-content>
+</vdl-card>
+
+<vdl-card>
+  <vdl-card-title>Todo List</vdl-card-title>
+  <vdl-card-content>
+    <vdl-input-container label="Add Item">
+      <input vdlInput placeholder="take out the trash" #newTodo
+             (keyup.enter)="addToDo(newTodo.value); newTodo.value = '';">
+    </vdl-input-container>
+    
+    <vdl-list>
+      <vdl-list-item *ngFor="let toDo of toDos">
+        <vdl-checkbox [(ngModel)]="toDo.isCompleted" label="{{toDo.text}}"
+                      [style.text-decoration]="toDo.isCompleted ? 'line-through' : 'none'">
+        </vdl-checkbox>
+      </vdl-list-item>
+    </vdl-list>
+  
+  </vdl-card-content>
+</vdl-card>

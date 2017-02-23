@@ -1,3 +1,39 @@
-<h1>
-  {{title}}
-</h1>
+<vdl-top-bar>
+  <vdl-icon vdl-top-bar-logo svgIcon="vtss"></vdl-icon>
+  <div vdl-top-bar-title>VTSS Partners</div>
+  
+  <vdl-input-container *ngIf="_showInputContainer" (searchClick)="inputSearchClick($event)"
+                       [iconSearch]="true">
+    <input vdlInput #input (keyup.enter)="alert(input.value)" type="text" placeholder="Search ..."
+           aria-placeholder="Search ...">
+  </vdl-input-container>
+  
+  <button *ngIf="!_showInputContainer" (click)="searchClick()" vdl-icon-button>
+    <vdl-icon class="vdl-search-top-bar" fontSet="fontawesome" fontIcon="fa-search"></vdl-icon>
+  </button>
+  
+  <vdl-top-bar-actions>
+    <button vdl-icon-button (click)="alert('Alert icon clicked!')">
+      <vdl-icon fontSet="fontawesome" fontIcon="fa-bell"></vdl-icon>
+    </button>
+    <button vdl-icon-button (click)="alert('Help icon clicked!')">
+      <vdl-icon fontSet="fontawesome" fontIcon="fa-question"></vdl-icon>
+    </button>
+    <button vdl-icon-button (click)="alert('Admin icon clicked!')">
+      <vdl-icon fontSet="fontawesome" fontIcon="fa-user"></vdl-icon>
+    </button>
+  </vdl-top-bar-actions>
+</vdl-top-bar>
+
+<div class="app-sidenav">
+  <vdl-sidenav-list [selectedCategory]="selectedCategory"
+                    [categoryList]="navItems"
+                    (onCategorySelect)="categorySelected($event)">
+  </vdl-sidenav-list>
+  
+  <div class="demo-content2">
+    <div class="demo-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
